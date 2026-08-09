@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Timetable Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>School Timetable Generator</h1>
+    <p>Create a balanced timetable automatically</p>
+</header>
+
+<div class="container">
+
+    <!-- BASIC DETAILS -->
+    <div class="card">
+
+        <h2>1. Basic Details</h2>
+
+        <div class="form-grid">
+
+            <div>
+                <label>Number of Teachers</label>
+
+                <input
+                    type="number"
+                    id="teacherCount"
+                    min="1"
+                    value="6">
+            </div>
+
+            <div>
+                <label>Working Days</label>
+
+                <select id="days">
+
+                    <option value="6">
+                        Monday - Saturday
+                    </option>
+
+                    <option value="5">
+                        Monday - Friday
+                    </option>
+
+                </select>
+            </div>
+
+            <div>
+                <label>Periods Per Day</label>
+
+                <select id="periods">
+
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+
+                </select>
+            </div>
+
+            <div>
+                <label>Classes</label>
+
+                <select id="classRange">
+
+                    <option value="1-5">
+                        Classes 1 - 5
+                    </option>
+
+                    <option value="6-10">
+                        Classes 6 - 10
+                    </option>
+
+                    <option value="1-10">
+                        Classes 1 - 10
+                    </option>
+
+                </select>
+            </div>
+
+        </div>
+
+        <button onclick="createTeacherInputs()">
+            Next
+        </button>
+
+    </div>
+
+
+    <!-- TEACHER DETAILS -->
+    <div class="card hidden" id="teacherSection">
+
+        <h2>2. Teacher Details</h2>
+
+        <div id="teacherInputs"></div>
+
+        <button onclick="createClassInputs()">
+            Next
+        </button>
+
+    </div>
+
+
+    <!-- CLASS DETAILS -->
+    <div class="card hidden" id="classSection">
+
+        <h2>3. Class Details</h2>
+
+        <p>
+            Select how many classes you want to generate
+            the timetable for.
+        </p>
+
+        <div>
+
+            <label>Number of Classes</label>
+
+            <input
+                type="number"
+                id="numberOfClasses"
+                value="5"
+                min="1">
+
+        </div>
+
+        <div>
+
+            <label>
+                Same teacher for 1st period
+                Monday-Saturday?
+            </label>
+
+            <select id="firstPeriodRule">
+
+                <option value="yes">
+                    Yes
+                </option>
+
+                <option value="no">
+                    No
+                </option>
+
+            </select>
+
+        </div>
+
+        <button onclick="generateTimetable()">
+            Generate Timetable
+        </button>
+
+    </div>
+
+
+    <!-- RESULT -->
+    <div class="card hidden" id="resultSection">
+
+        <h2>Generated Timetable</h2>
+
+        <div id="timetable"></div>
+
+        <button onclick="window.print()">
+            Print Timetable
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
